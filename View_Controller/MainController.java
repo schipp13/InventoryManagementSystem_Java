@@ -242,7 +242,7 @@ public class MainController implements Initializable {
     public void modifyProductListener(ActionEvent event) throws Exception
     {
         Product selectedProduct = ProductTableView.getSelectionModel().getSelectedItem();
-
+        int index = ProductTableView.getSelectionModel().getSelectedIndex();
         if(selectedProduct == null) {
             getAlert(1);
         }
@@ -255,8 +255,7 @@ public class MainController implements Initializable {
             ProductController controller = loader.getController();
             controller.setFormTitleLabel("Modify Product");
 
-            controller.setSelectedProduct(selectedProduct);
-
+            controller.setSelectedProduct(selectedProduct, index);
             Scene productFormScene = new Scene(root);
 
             // Set scene

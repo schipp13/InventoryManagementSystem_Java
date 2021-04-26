@@ -108,9 +108,10 @@ public class ProductController implements Initializable {
      * Sets the TextFields to display the selected Product's data.
      * @param selectedProduct
      */
-    public void setSelectedProduct(Product selectedProduct) {
+    public void setSelectedProduct(Product selectedProduct, int productIndex) {
 
         associatedParts = selectedProduct.getAllAssociatedParts();
+        selectedIndex = productIndex;
 
         this.name.setText(selectedProduct.getName());
         this.id.setText(Integer.toString(selectedProduct.getId()));
@@ -249,10 +250,10 @@ public class ProductController implements Initializable {
             }
             else
             {
-                newProduct = new Product(Integer.parseInt(id.getText()), name.getText(), Double.parseDouble(price.getText()), Integer.parseInt(stock.getText()), Integer.parseInt(min.getText()), Integer.parseInt(max.getText()));
+                Product updateProduct = new Product(Integer.parseInt(id.getText()), name.getText(), Double.parseDouble(price.getText()), Integer.parseInt(stock.getText()), Integer.parseInt(min.getText()), Integer.parseInt(max.getText()));
                 noError = checkValues();
                 if(noError == true) {
-                    Inventory.updateProduct(selectedIndex, newProduct);
+                    Inventory.updateProduct(selectedIndex, updateProduct);
                 }
             }
 
