@@ -20,7 +20,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
- *
+ * This class creates the product form.
  */
 public class ProductController implements Initializable {
 
@@ -137,7 +137,6 @@ public class ProductController implements Initializable {
     /**
      * Adds a copy of the selected Part from the Top TableView to the Bottom TableView.
      * If nothing is selected display a message.
-     *
      * @param event
      * @throws Exception
      */

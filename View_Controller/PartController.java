@@ -23,7 +23,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
- *
+ * This class creates the part form.
  */
 public class PartController implements Initializable {
     @FXML

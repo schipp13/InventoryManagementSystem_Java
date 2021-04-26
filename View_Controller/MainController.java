@@ -23,6 +23,11 @@ import java.util.ResourceBundle;
 /**
  *
  * @author Saige Chipp
+ *
+ */
+
+/**
+ * This class creates the main form.
  */
 
 public class MainController implements Initializable {
@@ -88,11 +93,10 @@ public class MainController implements Initializable {
         ProductTableView.setItems(Inventory.getAllProducts());
     }
 
-    /**
+    /**.
      * Searchs for a Part ID or Name.
      * Displays the found ID or Name in the TableView
      * If nothing is typed into the search TextField it will refresh the TableView to show all Parts.
-     *
      */
     public void searchForPart() {
         String str = lookupPart.getText();
