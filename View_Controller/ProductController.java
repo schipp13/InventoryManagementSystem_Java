@@ -79,6 +79,15 @@ public class ProductController implements Initializable {
      * @param url
      * @param rb
      */
+
+    /**
+     * RunTime Error
+     * Was not able to set the bottom table when modifying product.
+     */
+    /**
+     * Correction
+     * Changed product associatedParts list from static to non-static
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -247,11 +256,14 @@ public class ProductController implements Initializable {
                     }
                 }
             }
-            else
+            else // To save changes to product
             {
                 Product updateProduct = new Product(Integer.parseInt(id.getText()), name.getText(), Double.parseDouble(price.getText()), Integer.parseInt(stock.getText()), Integer.parseInt(min.getText()), Integer.parseInt(max.getText()));
                 noError = checkValues();
                 if(noError == true) {
+                    for (Part associatedPart : associatedParts) {
+                        updateProduct.addAssociatedPart(associatedPart);
+                    }
                     Inventory.updateProduct(selectedIndex, updateProduct);
                 }
             }

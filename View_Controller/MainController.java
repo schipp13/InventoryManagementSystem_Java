@@ -243,6 +243,9 @@ public class MainController implements Initializable {
      *  If nothing is selected display a message.
      * @param event
      */
+
+
+
     public void modifyProductListener(ActionEvent event) throws Exception
     {
         Product selectedProduct = ProductTableView.getSelectionModel().getSelectedItem();
@@ -303,6 +306,14 @@ public class MainController implements Initializable {
      * If there is more than one associated Part with the product a message will be displayed.
      *
      */
+
+    /** Future Feature
+     *  When deleting a selected product give a prompt asking if it is ok to delete associated parts when deleting product.
+     *  If ok delete the associated parts automatically then delete product.
+     */
+
+
+
     public void deleteProductListener()
     {
         Product selectedProduct = ProductTableView.getSelectionModel().getSelectedItem();
@@ -319,10 +330,11 @@ public class MainController implements Initializable {
             Optional<ButtonType> result = alert.showAndWait();
             if(result.isPresent() && result.get() == ButtonType.OK)
             {
-                ObservableList<Part> assocaitedParts = selectedProduct.getAllAssociatedParts();
+                ObservableList<Part> associatedParts = selectedProduct.getAllAssociatedParts();
 
-                if(assocaitedParts.size() >= 1){
+                if(associatedParts.size() >= 1){
                     getAlert(3);
+
                 }
                 else {
                     Inventory.deleteProduct(selectedProduct);
